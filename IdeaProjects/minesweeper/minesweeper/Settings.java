@@ -31,17 +31,14 @@ public class Settings implements Serializable {
         return mineCount;
     }
     public boolean equals(Object o){
-        if (o.equals(BEGINNER)) {
-            return true;
-        }
-        if (o.equals(INTERMEDIATE)){
-            return true;
-        }
-        if (o.equals(EXPERT)){
-            return true;
+        if (o instanceof Settings) {
+           return(((Settings) o).getMineCount() == this.getMineCount() &&
+               ((Settings) o).getColumnCount() == this.getColumnCount()&&
+               ((Settings) o).getMineCount() == this.getMineCount());
         }
         return false;
-    };
+    }
+
     public int hashCode(){
         return rowCount*columnCount*mineCount;
     }
